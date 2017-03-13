@@ -1,0 +1,78 @@
+<!--{
+	"Path": "/get/windows/",
+	"Template": true
+}-->
+
+<h1>Installing ActiveGo on Windows </h1>
+
+<p>Windows is the only supported platform for the beta release of ActiveGo. macOS and Linux will be supported in future releases.</p>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<h3 id="prerequisites">Prerequisites</h3>
+    <p>Ensure that your system meets the minimum requirements before you start the installation.
+    The ActiveGo 1.8 Beta release has the following requirements:</p>
+    <ul>
+    <li>Windows 64-bit (amd64); Windows 7, or later</li>
+    <li>The installation requires at least 1.5 GB of hard drive space</li>
+    </ul>   
+
+<h3 id="existing-go-installations">Existing Go installations</h3>
+    <p>The ActiveGo installer will automatically detect if another release of Go is installed by looking for existing GOROOT and GOPATH environment variables.
+    If either variable is found, the installer will warn you about the existing installation and ask you if  you want to continue.</p>
+
+    <p>We recommend that you uninstall any existing Go installations before installing ActiveGo.
+    If this is not possible, ensure that you take the following precautions when completing a side-by-side installation:</p>
+    <ul>
+        <li>Choose a directory name for ActiveGo that will not conflict with your existing installation.</li>
+        <li>Ensure that the installer will not overwrite any of your existing Go directories.</li>
+        <li>Remove the PATH and environment variables associated with any existing Go installations.</li>
+    </ul>
+    
+
+<ol>
+<li>Set GOROOT to location where ActiveGo is installed, and rename any existing GOROOT to OLD_GOROOT our Go installation location</li>
+<li>Set the GOPATH relative to our GOROOT, and rename any existing GOPATH to OLD_GOPATH></li>
+<li>Add the ActiveGo <code>go/bin</code> directory to the start of your PATH environment variable to ensure that the ActiveGo executable is used on the command line.</li>
+</ol>
+
+<h3 id="accessing-remote-repositories">Accessing remote source control repositories</h3>
+
+<p>If you need to access projects located in remote repositories using the <code>go get</code> command, you need to install the appropriate command line tools for the repository.
+You can find the appropriate tools for Git, Subversion, Mercurial, and Bazaar here: <a href="https://github.com/golang/go/wiki/GoGetTools">https://github.com/golang/go/wiki/GoGetTools</a></p>
+
+<p>A missing error message indicates that required tools are not installed. For example: <code>go: missing Git command</code></p>
+
+<h2 id="installing-activego-using-the-windows-installer">Installing ActiveGo using the Windows installer</h2>
+
+<ol>
+<li><a href="http://www.activestate.com/activego" target="_blank">Download</a> the ActiveGo installer (<code>ActiveGo-&lt;version&gt;.exe</code>).</li>
+<li>When the download completes, double-click <code>ActiveGo-&lt;version&gt;.exe</code> to start the installation process.</li>
+<li>Follow the prompts on screen to complete the installation. <!--You need to provide the following information:-->
+</ol>
+<!--
+<h2 id="installing-activego-on-the-command-line">Installing ActiveGo on the command line</h2>
+
+<p>Syntax:</p>
+<ul>
+    <li><code.>/i</code.>: Install</li>
+    <li><code>//</code>: Required to pass MSIEXEC parameters to the EXE installer</li>
+    <li><code>/qn+</code>: Quiet with no prompts from the user interface</li>
+    <li><code>/L*v logfile_name</code>: Create the specified log file and log in verbose mode</li>
+    <li><code>INSTALLDIR=<path></code>: The directory to install ActiveGo in.</li>
+</ul>
+
+<p>To install ActiveGo from the command line, you need to start a command prompt as administrator. For example:</p>
+<code>ActiveGo-1.8.0.1800-beta-win64.exe /i // /qn /l*v activego.log INSTALLDIR=C:\ActiveGo_1_8</code>
+
+
+<!--<h2 id="verifying-your-installation">Verifying your installation</h2>-->
+
+<h2 id="uninstalling-activego">Uninstalling ActiveGo</h2>
+<p>If you uninstall ActiveGo using the Setup Wizard or <strong>Add or Remove Programs</strong>, the installer removes the GOROOT and GOPATH values set by the ActiveGo setup wizard,
+and removes the <code>go/bin</code> directory from your PATH. It does not reset any of these settings to the previous values set by an earlier installation.
+You will need to restore these values manually. If you had GOPATH and GOROOT environment varibles set when you installed ActiveGO,
+they are are still available as OLD_GOPATH and OLD_GOROOT and can be restored by renaming them back to GOPATH and GOROOT.</p>
+<!--
+To uninstall ActiveGo from the command line, you need to start a command prompt as Administrator. For example:
+<code>ActiveGo-1.8.0.1800-beta-win64.exe /x // /l*v activego.log</code>-->

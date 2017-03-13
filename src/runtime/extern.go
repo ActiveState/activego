@@ -242,6 +242,11 @@ func Version() string {
 	return sys.TheVersion
 }
 
+// ActiveGoBuild returns the build of ActiveGo.
+func ActiveGoBuild() string {
+	return sys.ActiveGoBuild
+}
+
 // GOOS is the running program's operating system target:
 // one of darwin, freebsd, linux, and so on.
 const GOOS string = sys.GOOS

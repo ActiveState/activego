@@ -7,6 +7,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"time"
 )
 
 var cmdVersion = &Command{
@@ -20,6 +21,9 @@ func runVersion(cmd *Command, args []string) {
 	if len(args) != 0 {
 		cmd.Usage()
 	}
+
+	fmt.Printf("ActiveGo 1800 (beta) [%s] provided by ActiveState Software, Inc.\n", runtime.ActiveGoBuild())
+	fmt.Printf("Built %s\n\n", time.Now().Format(time.UnixDate))
 
 	fmt.Printf("go version %s %s/%s\n", runtime.Version(), runtime.GOOS, runtime.GOARCH)
 }

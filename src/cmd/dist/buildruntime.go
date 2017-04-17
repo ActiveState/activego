@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 /*
@@ -17,6 +18,8 @@ import (
 // mkzversion writes zversion.go:
 //
 //	package sys
+//	const ActiveGoBuild = <ACTIVEGO_BUILD_NUMBER>
+//	const ActiveGoBuildDate = <date>
 //	const DefaultGoroot = <goroot>
 //	const TheVersion = <version>
 //	const Goexperiment = <goexperiment>
@@ -29,10 +32,11 @@ func mkzversion(dir, file string) {
 			"package sys\n"+
 			"\n"+
 			"const ActiveGoBuild = `%s`\n"+
+			"const ActiveGoBuildDate = `%s`\n"+
 			"const DefaultGoroot = `%s`\n"+
 			"const TheVersion = `%s`\n"+
 			"const Goexperiment = `%s`\n"+
-			"const StackGuardMultiplier = %d\n\n", os.Getenv("ACTIVEGO_BUILD_NUMBER"), goroot_final, findgoversion(), os.Getenv("GOEXPERIMENT"), stackGuardMultiplier())
+			"const StackGuardMultiplier = %d\n\n", os.Getenv("ACTIVEGO_BUILD_NUMBER"), time.Now().Format(time.UnixDate), goroot_final, findgoversion(), os.Getenv("GOEXPERIMENT"), stackGuardMultiplier())
 
 	writefile(out, file, writeSkipSame)
 }

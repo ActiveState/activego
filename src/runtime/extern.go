@@ -247,6 +247,11 @@ func ActiveGoBuild() string {
 	return sys.ActiveGoBuild
 }
 
+// ActiveGoBuildDate returns the date of the current build of ActiveGo.
+func ActiveGoBuildDate() string {
+	return sys.ActiveGoBuildDate
+}
+
 // GOOS is the running program's operating system target:
 // one of darwin, freebsd, linux, and so on.
 const GOOS string = sys.GOOS

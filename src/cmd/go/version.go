@@ -21,7 +21,7 @@ func runVersion(cmd *Command, args []string) {
 		cmd.Usage()
 	}
 
-	fmt.Printf("ActiveGo 1800 (beta) [%s] provided by ActiveState Software, Inc.\n", runtime.ActiveGoBuild())
+	fmt.Printf("ActiveGo 1803 [%s] provided by ActiveState Software, Inc.\n", runtime.ActiveGoBuild())
 	fmt.Printf("Built %s\n\n", runtime.ActiveGoBuildDate())
 
 	fmt.Printf("go version %s %s/%s\n", runtime.Version(), runtime.GOOS, runtime.GOARCH)

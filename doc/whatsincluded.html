@@ -4,15 +4,15 @@
 }-->
 
 <h1>What&#39;s included in ActiveGo?</h1>
-			
-<p>ActiveGo includes a comprehensive set of packages for Go development.</p>
+
+<p>ActiveGo includes a comprehensive set of packages and utilities for Go development.</p>
 
 <h2 id="go-standard-packages">Go standard library</h2>
 
 <p>The ActiveGo distribution includes all of the core packages for the Go language. For more information, see the  <a href="/pkg/#stdlib">Standard library</a> documentation.</p>
 
 <h2 id="go-sub-repository-packages">Go sub-repository packages</h2>
-<p>The sub-repository packages that provide important functionality, but are not included in the core packages are also included:</p>
+<p>The sub-repository packages that provide important functionality, but are not included in the core packages, are also included:</p>
 <ul>
     <li><a href="/pkg/golang.org/x/crypto/">crypto</a>: additional cryptography packages</li>
     <li><a href="/pkg/golang.org/x/image/">images</a>: additional imaging package</li>
@@ -28,34 +28,25 @@
 <p>The open-source community packages that add powerful capabilities to the Go language to accelerate your development.</p>
 <h3>Big data</h3>
 <ul>
-<li><a href="/pkg/github.com/gocql/gocql/">gocql</a>: Driver for Apache Cassandra</li>
-<li><a href="/pkg/gopkg.in/mgo.v2/">mgo</a>: Driver for MongoDB</li>
-<li><a href="/pkg/github.com/Shopify/sarama/">sarama</a>: Client library for Apache Kafka</li>
+	<li><a href="/pkg/github.com/gocql/gocql/">gocql</a>: Driver for Apache Cassandra</li>
+	<li><a href="/pkg/gopkg.in/mgo.v2/">mgo</a>: Driver for MongoDB</li>
+	<li><a href="/pkg/github.com/Shopify/sarama/">sarama</a>: Client library for Apache Kafka</li>
 </ul>
 
 <h3>Database connectivity</h3>
 <ul>
-<li><a href="/pkg/github.com/lib/pq/">pq</a>: PostgresSQL</li>
-<li><a href="/pkg/github.com/go-sql-driver/mysql/">mysql</a>: MySQL</li>
-<li><a href="/pkg/github.com/mattn/go-oci8/">go-oci8</a>: Oracle</li>
-<li><a href="/pkg/github.com/mattn/go-sqlite3/">go-sqlite3</a>: SQLite3</li>
-<li><a href="/pkg/github.com/go-kit/kit/metrics/influx/">influx</a>: InfluxDB client library</li>
+	<li><a href="/pkg/github.com/lib/pq/">pq</a>: PostgresSQL</li>
+	<li><a href="/pkg/github.com/go-sql-driver/mysql/">mysql</a>: MySQL</li>
+	<li><a href="/pkg/github.com/mattn/go-oci8/">go-oci8</a>: Oracle</li>
+	<li><a href="/pkg/github.com/go-kit/kit/metrics/influx/">influx</a>: InfluxDB client library</li>
+  <li><a href="/pkg/github.com/go-redis/redis">redis: </a>Redis client</li>
+  <li><a href="/pkg/github.com/jmoiron/sqlx">sqlx: </a>Extensions for the standard database/sql library.</li>
 </ul>
 
 <h3>Testing and error handling</h3>
 <ul>
-<li><a href="/pkg/github.com/stretchr/testify/assert/">assert</a>: Extended core testing capabilities to write tests more easily with assertions.</li>
-<li><a href="/pkg/errors/"/>errors</a>:  More robust error handling</li>
-</ul>
-
-<h3>API and cloud development</h3>
-<ul>
-<li><a href="/pkg/github.com/aws/aws-sdk-go/">aws-sdk-go</a>: Amazon Web Services(AWS) support</li>
-<li><a href="/pkg/google.golang.org/appengine/">appengine</a>: Google App Engine</li>
-<li><a href="/pkg/github.com/go-kit/">go-kit</a> and <a href="/pkg/github.com/micro/go-micro/">go-micro</a>: Building APIs and microservices</li>
-Gorilla (<a href="/pkg/github.com/gorilla/mux/">mux</a> and <a href="/pkg/github.com/gorilla/websocket/">websocket</a>): Web application development</li>
-<li><a href="/pkg/github.com/bradfitz/gomemcache/memcache/">gomemcached</a>: Distributed memory cache support for web applications</li>
-</li>
+	<li><a href="/pkg/github.com/stretchr/testify/assert/">assert</a>: Extended core testing capabilities to write tests more easily with assertions.</li>
+	<li><a href="/pkg/errors/"/>errors</a>:  More robust error handling</li>
 </ul>
 
 <h3>Debugging and code quality</h3>
@@ -63,4 +54,37 @@ Gorilla (<a href="/pkg/github.com/gorilla/mux/">mux</a> and <a href="/pkg/github
 <li><a href="https://godoc.org/github.com/derekparker/delve">delve</a>: Debugging</li>
 <li><a href="https://godoc.org/github.com/golang/lint">golint</a>: Verifying code quality and printing out style mistakes </li>
 </li>
+</ul>
+
+<h3>API and cloud development</h3>
+<ul>
+	<li><a href="/pkg/github.com/aws/aws-sdk-go/">aws-sdk-go</a>: Amazon Web Services(AWS) support</li>
+	<li><a href="/pkg/google.golang.org/appengine/">appengine</a>: Google App Engine</li>
+	<li><a href="/pkg/github.com/go-kit/">go-kit</a> and <a href="/pkg/github.com/micro/go-micro/">go-micro</a>: Building APIs and microservices</li>
+	<li>Gorilla (<a href="/pkg/github.com/gorilla/mux/">mux</a> and <a href="/pkg/github.com/gorilla/websocket/">websocket</a>): Web application development</li>
+	<li><a href="/pkg/github.com/bradfitz/gomemcache/memcache/">gomemcached</a>: Distributed memory cache support for web applications</li>
+</ul>
+
+<h3>Machine learning</h3>
+<ul>
+  <li><a href="https://www.tensorflow.org/">TensorFlow for Go</a>: A package to interact with TensorFlow, an open-source software library for Machine Intelligence <p>For information on installing the TensorFlow C library and configuring Tensorflow for ActiveGo, see <a href="/get/tensorflow/">Configuring TensorFlow for ActiveGo</a></p></li>
+</ul>
+
+<h2 id="utils">Utilities available in ActiveGo</h2>
+<p>ActiveGo includes a number of precompiled command line utilites.</p>
+<ul>
+    <li>dlv: The Delve debugger for the Go programming language.</li>
+    <li>easyjson: A utility that provides a fast and easy way to marshal/unmarshal Go structs to/from JSON without the use of reflection.</li>
+    <li>gocode: An autocompletion daemon for the Go programming language. For setup instructions, see https://github.com/nsf/gocode</li>
+    <li>godef: Utility to print were symbols are defined in Go code</li>
+    <li>godoc: Utility for extracting and generating documentation for Go programs. It can be run in command line mode or as a webserver.</li>
+    <li>goimports: Utility that updates your Go import lines, adding missing ones and removing unreferenced ones.</li>
+    <li>golint: A linter utility for Go source code used to analyze code for potential errors.</li>
+    <li>gotext: A tool for managing text in Go source code.</li>
+    <li>gotour: A Tour of Go is an introduction to the Go programming language.</li>
+    <li>h2i: An interactive HTTP/2 console debugger</li>
+    <li>aebundler: Google App Engine utility used to turn a Go app into a fully self-contained tar file.</li>
+    <li>aedeploy: Google App Engine utility used to deploy App Engine "flexible environment" Go apps to production</li>
+    <li>aefix: Google App Engine utility for automating the upgrade to the google.golang.org/appengine packages from the bare appengine packages.</li>
+    <li>protoc-gen-go: A plugin for the Google protocol buffer compiler to generate Go code.</li>
 </ul>

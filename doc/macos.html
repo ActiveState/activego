@@ -1,0 +1,63 @@
+<!--{
+	"Path": "/get/macos/",
+	"Template": true
+}-->
+
+<h1>Installing ActiveGo on macOS </h1>
+
+<p>You can install the macOS package using the standard user interface, or by using the command line.</p>
+
+<p>ActiveGo is distributed on macOS as an installer package (<code>.pkg</code> bundle) that you run to install ActiveGo.</p>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<p>Before you start the installation, you need to ensure that your system meets the prerequisites, and that you do not have
+other Go distributions that are going to conflict with ActiveGo.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+<li>Hardware: 1 GB hard disk space; Intel 64-bit processor</li></li>
+<li>Operating System: macOS 10.9 "Mavericks" or later</li>
+</ul>
+
+<h3 id="existing-go-installations">Existing Go installations</h3>
+
+<p>ActiveGo can usually co-exist with other Go installations, but only one Go can be first on your PATH environment variable at a time.
+This determines which Go installation is run when you type <code>go</code> in Terminal. The ActiveGo installation places the path to ActiveGo at the start of your path, making it the default Go installation on your system.</p>
+<p>By default, the installer will install the ActiveGo distribution in <code>/usr/local/ActiveGo-<version></code> and set your PATH and GOPATH environment variables in your <code>$HOME/.profile</code> file.</p>
+
+<h2 id="installing-with-package">Installing with Package</h2>
+
+<ol>
+    <li><a href="http://www.activestate.com/activego" target="_blank">Download</a> the ActiveGo package installer (<code>ActiveGo-&lt;version&gt;-macosx.pkg</code>).</li>
+    <li>Double-click the ActiveGo installer package to start the installation.</li>
+    <li>Follow the installer prompts. The installer will ask for administrative authentication if the current user does not have administrative privileges.</li>
+</ol>
+
+<h2 id="installing-with-the-package-command-line-tool">Installing with the Package command line tool</h2>
+
+<p>macOS includes a command-line tool, <code>installer</code>, for installing macOS packages non-interactively from the command line. This can be
+useful for remote administration.</p>
+<pre><code class="language-bash">sudo installer -pkg ~/Downloads/ActiveGo-<version>.pkg -target /
+</code></pre>
+<p><strong>Note:</strong> It is sometimes useful to create an install log file. For example, if you are running into issues and need to send the log to ActiveState technical support).
+To create a log file during installation, use the <code>-verbose</code> and <code>-dumplog</code> flags:</p>
+
+<pre><code class="language-bash">sudo installer -pkg ~/Downloads/ActiveGo-<version>.pkg \
+-target / -verbose -dumplog &gt; install.log 2&gt;&amp;1
+</code></pre>
+
+<h2>Verifying your installation</h2>
+<p>To verify that ActiveGo is installed and configured, enter:
+<code>godoc -play -http=:6060</code> to test your ActiveGo installation. Once the godoc server starts you can access a local instance of the ActiveGo help at http://localhost:6060.
+
+<p>After installing and configuring ActiveGo, read the <a href="/start/">Getting Started</a> pages in this guide for a general introduction to ActiveGo on your platform and pointers to documentation that will be most useful to you.</p>
+
+<p>ActiveGo supports integration with TensorFlow, an open-source software library for Machine Intelligence, with the TensorFlow for Go package. For information on configuring ActiveGo to work with TensorFlow, see <a href="/get/tensorflow/">Configuring TensorFlow for ActiveGo</a>.
+<h2 id="uninstalling-the-macos-package">Uninstalling the macOS Package</h2>
+
+<p>If you need to uninstall ActiveGo, you can do so by running the following command in Terminal:</p>
+<pre><code class="language-bash">
+/usr/local/ActiveGo-<version>/misc/activego-uninstall
+</code></pre>

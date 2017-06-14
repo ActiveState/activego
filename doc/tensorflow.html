@@ -1,0 +1,103 @@
+<!--{
+	"Path": "/get/tensorflow/",
+	"Template": true
+}-->
+
+<h1>Configuring TensorFlow for ActiveGo</h1>
+
+<p>You can use the APIs provided by TensorFlow to load models created in Python and execute them from within a Go application. In order to do this,
+you need to install and configure TensorFlow to work with ActiveGo. ActiveGo includes the TensorFlow Go client and dependancies.</p>
+
+<p>TensorFlow for Go is available for the Linux and macOS releases of ActiveGo.</p>
+
+<p>These instructions are based on the steps in the <a href="https://www.tensorflow.org/versions/master/install/install_go" target="_blank">TensorFlow</a> documentation.</p>
+
+<p><strong>WARNING</strong>: The TensorFlow Go API is not covered by the TensorFlow <a href="https://www.tensorflow.org/programmers_guide/version_semantics" target="_blank">API stability guarantees</a>.</p>
+
+<ol>
+<li><p>Enter the following shell commands to download and extract the TensorFlow C library to the default location: <code>/usr/local/lib</code>. You can adjust the TARGET_DIRECTORY value to extract the library to a different location.</p>
+
+<pre><code class="language-bash">TF_TYPE=&quot;cpu&quot; # Must be &quot;cpu&quot; for the ActiveGo 1.8.3 release; &quot;gpu&quot; is not supported.
+TARGET_DIRECTORY='/usr/local'
+curl -L \
+&quot;https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-${TF_TYPE}-$(go env GOOS)-x86_64-1.2.0-rc1.tar.gz&quot; |
+sudo tar -C $TARGET_DIRECTORY -xz
+</code></pre></li>
+
+<li><p>In Step 1, if you specified a system directory (for example, <code>/usr/local</code>) as the TARGET_DIRECTORY on Linux, you must run <code>ldconfig</code> to configure the linker.</p>
+
+<pre><code class="language-bash">sudo ldconfig
+</code></pre></li>
+
+<li><p>In Step 1, if you specified a non-system directory (for example, `<code>~/mydir</code>) as the TARGET_DIRECTORY, you must append the extraction directory to two environment variables.</p>
+
+<ul>
+<li><p>Linux:</p>
+
+<pre><code class="language-bash">export LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib
+</code></pre></li>
+
+<li><p>macOS:</p>
+
+<pre><code class="language-bash">export LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/mydir/lib
+</code></pre></li>
+</ul></li>
+
+<li><p>Run the TensorFlow for Go tests to verify your configuration.</p>
+
+<pre><code class="language-go">go test github.com/tensorflow/tensorflow/tensorflow/go
+</code></pre>
+
+<p><br>If go test generates error messages, contact <a href="mailto:support@activestate.com">support@activestate.com</a> or search (or post to) <a href="https://stackoverflow.com/questions/tagged/tensorflow" target="_blank">StackOverflow</a> for solutions.</p></li>
+
+<li><p>Enter the following code into a file named <code>hello_tf.go</code> to verify that you can run an application that interacts with the TensorFlow C library.</p>
+
+<pre><code class="language-go">package main
+
+import (
+tf &quot;github.com/tensorflow/tensorflow/tensorflow/go&quot;
+&quot;github.com/tensorflow/tensorflow/tensorflow/go/op&quot;
+&quot;fmt&quot;
+)
+
+func main() {
+// Construct a graph with an operation that produces a string constant.
+s := op.NewScope()
+c := op.Const(s, &quot;Hello from TensorFlow version &quot; + tf.Version())
+graph, err := s.Finalize()
+if err != nil {
+panic(err)
+}
+
+// Execute the graph in a session.
+sess, err := tf.NewSession(graph, nil)
+if err != nil {
+panic(err)
+}
+output, err := sess.Run(nil, []tf.Output{c}, nil)
+if err != nil {
+panic(err)
+}
+fmt.Println(output[0].Value())
+}
+</code></pre></li>
+
+<li><p>Run <code>hello_tf.go</code>.</p>
+
+<pre><code class="language-go">go run hello_tf.go
+</code></pre>
+
+<p><br>If the program runs successfully, you will see this output:</p>
+
+<pre><code class="language-go">Hello from TensorFlow &lt;version_number&gt;
+</code></pre>
+
+<p><br>The program might also generate multiple warning messages similar to the following, which you can ignore:</p>
+
+<pre><code class="language-go">W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library
+wasn't compiled to use *Type* instructions, but these are available on your
+machine and could speed up CPU computations.
+</code></pre></li>
+</ol>

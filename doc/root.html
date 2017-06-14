@@ -33,7 +33,7 @@ Hello, ActiveGo
 </div>
 <div class="toys">
 <select>
-	<option value="hello.go">Hello, World!</option>
+	<option value="hello.go">Hello, ActiveGo!</option>
 	<option value="life.go">Conway's Game of Life</option>
 	<option value="fib.go">Fibonacci Closure</option>
 	<option value="peano.go">Peano Integers</option>
@@ -50,8 +50,10 @@ Hello, ActiveGo
 <div class="right">
 
 <div id="about">
-ActiveGo is ActiveState's commercially supported, quality-assured Go distribution. We've bundled some of the best packages, tools, and documentation to easily adopt this modern language in your projects.<br><br>
-The ActiveGo Beta release lets you try out pre-release software. The feedback you provide on quality and usability helps us identify issues, resolve them, and make ActiveGo even better. Send your feedback to <a href="mailto:activego-beta@activestate.com">activego-beta@activestate.com</a>
+	ActiveGo<sup>&reg;</sup> is ActiveState's commercially supported, quality-assured Go distribution. We've bundled some of the best packages,
+	tools, and documentation to easily adopt this language in your projects.<br><br>
+	<b>Using ActiveGo at work?</b><br>
+	Use ActivePython Business or Enterprise Editions for production servers, and get access to technical support, maintenance, and indemnification. Safeguard your applications with guaranteed, quality-assured ActiveGo binaries and mitigate risk with world-class support for your critical Go systems.
 </div>
 
 <div id="gopher"></div>
@@ -59,7 +61,7 @@ The ActiveGo Beta release lets you try out pre-release software. The feedback yo
 <a href="//www.activestate.com/activego/downloads" id="start">
 <span class="big">Download ActiveGo 1.8</span>
 <span class="desc">
-The ActiveGo Windows Installer is available for 64-bit Windows.
+ActiveGo installers are available for Windows, Linux, and macOS.
 </span>
 </a>
 </div>
@@ -71,8 +73,11 @@ The ActiveGo Windows Installer is available for 64-bit Windows.
 <div class="rootHeading">Getting ActiveGo</div>
 <p>Resources for installing and configuring ActiveGo.</p>
 <ul>
+	<li><a href="/get/">Overview</a></li>
 	<li><a href="/get/relnotes/">Release notes</a></li>
 	<li><a href="/get/windows/">Installing ActiveGo on Windows</a></li>
+	<li><a href="/get/linux/">Installing ActiveGo on Linux</a></li>
+	<li><a href="/get/macos/">Installing ActiveGo on macOS</a></li>
 	<li><a href="/get/license/">End user license agreement</a></li>
 </ul>
 </div>
@@ -81,12 +86,12 @@ The ActiveGo Windows Installer is available for 64-bit Windows.
 <div class="rootHeading">Getting started with ActiveGo</div>
 <p>Resources for getting started with ActiveGo.</p>
 <ul>
-	<li><a href="/doc/code.html">How to write Go code</a></li>
+	<li><a href="/start/">Overview</a></li>
 	<li><a href="/start/whatsincluded/">What's included in ActiveGo</a></li>
+	<li><a href="/start/firststeps/">First steps with ActiveGo</a></li>
 	<li><a href="/doc/cmd">Command documentation</a></li>
 	<li><a href="/ref/spec">Language specification</a></li>
 </ul>
-
 </div>
 
 
@@ -102,28 +107,6 @@ function readableTime(t) {
 	return d.getDate() + " " + m[d.getMonth()] + " " + d.getFullYear();
 }
 
-/*
-function feedLoaded(result) {
-	var blog = document.getElementById("blog");
-	var read = blog.getElementsByClassName("read")[0];
-	for (var i = 0; i < result.length && i < 2; i++) {
-		var entry = result[i];
-		var title = document.createElement("a");
-		title.className = "title";
-		title.href = entry.Link;
-		title.innerHTML = entry.Title;
-		blog.insertBefore(title, read);
-		var extract = document.createElement("div");
-		extract.className = "extract";
-		extract.innerHTML = entry.Summary;
-		blog.insertBefore(extract, read);
-		var when = document.createElement("div");
-		when.className = "when";
-		when.innerHTML = "Published " + readableTime(entry.Time);
-		blog.insertBefore(when, read);
-	}
-}
-*/
 
 window.initFuncs.push(function() {
 	// Set up playground if enabled.
@@ -139,23 +122,6 @@ window.initFuncs.push(function() {
 	} else {
 		$('#learn').hide()
 	}
-
-/*
-	// Load blog feed.
-	$('<script/>').attr('text', 'text/javascript')
-		.attr('src', '//blog.golang.org/.json?jsonp=feedLoaded')
-		.appendTo('body');
-*/
-/*
-	// Set the video at random.
-	var videos = [
-		{h: 241, s: "//www.youtube.com/embed/ytEkHepK08c"}, // Tour of Go
-		{h: 241, s: "//www.youtube.com/embed/f6kdp27TYZs"}, // Concurrency Patterns
-		{h: 233, s: "//player.vimeo.com/video/69237265"}    // Simple environment
-	];
-	var v = videos[Math.floor(Math.random()*videos.length)];
-	$('#video iframe').attr('height', v.h).attr('src', v.s);
-*/
 });
 
 </script>

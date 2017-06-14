@@ -1,0 +1,78 @@
+<!--{
+	"Path": "/get/linux/",
+	"Template": true
+}-->
+
+<h1>Installing ActiveGo on Linux</h1>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<p>Before you start the installation, you need to ensure that your system meets the prerequisites, and that you do not have
+other Go distributions that are going to conflict with ActiveGo.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Linux 64-bit</li>
+<li>1 GB hard disk space</li></li>
+</ul>
+
+<h3 id="existing-go-installations">Existing Go installations</h3>
+
+<p>ActiveGo can usually co-exist with other Go installations, but only one Go can be first on your PATH environment variable at a time.
+This determines which Go installation is run when you type <code>go</code> at the command prompt. The ActiveGo installation places the path to ActiveGo at the start of your path, making it the default Go installation on your system.</p>
+<p>By default, the installer will install the ActiveGo distribution in <code>/opt/ActiveGo-<version></code> and set your PATH and GOPATH environment variables in your <code>$HOME/.profile</code> file.</p>
+
+
+<h2>Interactive installation</h2>
+
+<p>You can install ActiveGo on Linux by extracting a standard tarball (<code>*.tar.gz</code>) file and running an installation script. You must have write access to the installation folder, but you do not need *root* (Administrator) privileges to complete the installation unless the directory you are installing to requires these rights.
+<p>You can use either the standard interactive installation, or you can specify all of the required information on the command line so that the installation runs automatically.</p>
+
+<p>To install ActiveGo interactively, download the package to a temporary directory, extract the files, and run the <code>install.sh</code> install script without any arguments.</p>
+<p>For example, use this sequence of commands to extact and install ActiveGo.
+
+<pre>
+<code class="language-bash">
+% tar xzf ActiveGo-&lt;version&gt;.tar.gz
+% cd ActiveGo-&lt;version&gt;
+% sudo ./install.sh
+</code>
+</pre>
+
+<p>**NOTE: The <code>sudo</code> command is used because the default install location (*/opt/ActiveGo-<version>*) does require root privileges.</p>
+
+<p>The install script will verify that you accept the terms in the license agreement and allow you to specify the installation directory for ActiveGo.</p>
+<p>You need to configure <a href="#envar">envronment variables</a> to complete the installation.</p>
+
+<h2 id="non-interactive-install">Non-interactive install</h2>
+
+<p>By default the install script will prompt you for an install directory.
+You can avoid this interaction by specifying the install directory with
+the <code>--prefix &lt;installdir&gt;</code> option.</p>
+
+<p>The following example installs ActiveGo in the default directory and accepts the end user license agreement, but does not check for updates.</p>
+<pre><code class="language-bash">
+sudo ./install.sh --prefix /opt/ActiveGo-1.8.3 --license-accepted --no-update-check
+</code></pre>
+
+<p>Enter <code>./install.sh -h</code> to view complete usage information.</p>
+
+<h2 name="envar">Configuring environment variables for ActiveGo</h2>
+<p>After you complete the installation, you need to configure your PATH and GOPATH environment variables.</p>
+<p>Enter the following at the bottom of either <code>/etc/profile</code> file (for a system-wide installation)
+or the <code>$HOME/.profile</code> file (for your account only) to specify the location of your GOPATH, which points to your Go workspace.</p>
+<pre><code class="language-bash">
+MY_GOPATH=<GO_WORKSPACE_PATH> && source /opt/ActiveGo-1.8.3/ActiveGo-Environment.sh
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">
+MY_GOPATH=$HOME/go && source /opt/ActiveGo-1.8.3/ActiveGo-Environment.sh
+</code></pre>
+<p>Open a new terminal window, or <code>source</code> the shell configuration file (i.e. <code>source /etc/profile</code>) to enable the configuration changes. To verify that ActiveGo is installed and configured, enter:
+<code>godoc -play -http=:6060</code> to test your ActiveGo installation. Once the godoc server starts you can access a local instance of the ActiveGo help at http://localhost:6060.
+
+<p>After installing and configuring ActiveGo, read the <a href="/start/">Getting Started</a> pages in this guide for a general introduction to ActiveGo on your platform and pointers to documentation that will be most useful to you.</p>
+<p>ActiveGo supports integration with TensorFlow, an open-source software library for Machine Intelligence, with the TensorFlow for Go package. For information on configuring ActiveGo to work with TensorFlow, see <a href="/get/tensorflow/">Configuring TensorFlow for ActiveGo</a>.
+<h2 id="uninstalling-the-as-package">Uninstalling ActiveGo</h2>
+
+<p>If you need to uninstall ActiveGo, you can do so by removing the directory where you installed ActiveGo and removing any associated environment variables you configured.</p>

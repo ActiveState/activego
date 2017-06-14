@@ -1,0 +1,34 @@
+<!--{
+	"Path": "/start/firststeps/",
+	"Template": true
+}-->
+
+<h1>First steps with ActiveGo</h1>
+<p>There are many great features available in the ActiveGo distribution to help you get started developing with Go.</p>
+
+<h2>Bundled Documentation</h2>
+<p>When learning any new language, the documentation is a great place to start. We've bundled a wealth of Go documentation with the ActiveGo distribution. Launch the <code>godoc</code> server to start the help system: <code>godoc -play -http=:6060</code>. You can then view the help system for ActiveGo at http://localhost:6060. On Windows, you can use the Start menu shortcut to launch the server. After the server initializes, you can run sample programs, browse installed packages, and read individual package documentation. You can also view man page style documentation on the command line using <code>godoc <package_name></code></p>
+<p><a href="/doc/code.html">How to write Go code</a> is a great resource for learning how to structure your Go projects and start programming with Go.</p>
+<h2>Play with a Sample</h2>
+<p>Once you've launched the godoc server, you'll notice that there is a sample playground on the left-hand side. You can choose from a list of available sample programs in the drop-down list, and run them from within the window. You can even edit them and see your changes!</p>
+
+<h2>Using goimports and golint</h2>
+<p>ActiveGo comes with many useful tools to help you keep your code clean and to catch errors early. In addition to the standard <code>gofmt</code> command, ActiveGo ships with <code>golint</code> to provide syntax checking for your projects. You can check your code for syntax errors simply by running <code>golint &lt;yourcode.go&gt;</code>.</p>
+<p>You can also clean up your import statements using goimports which will automatically add or remove unused packages. Just run <code>goimports &lt;yourcode.go&gt;</code>.</p>
+<p>It's worth noting that tools like <code>gofmt</code>, <code>golint</code> and <code>goimports</code> will output to <code>stdout</code> so you'll need to direct them either to write to a new file or integrate directly with your editor to retain the changes that they make to your code.</p>
+
+<h2>Testing Tools</h2>
+<p>Go's built-in support for testing is a critical tool to help maintain your codebase, and ActiveGo expands on Go's testing support by including additional packages like <code>errors</code> and the invaluable <code>assert</code> package that lets you integrate assertions into your test suites.</p>
+<p>Within any test, you can add an assertion easily by using one of the many different comparison functions offered by this package. For example:</p>
+<pre>assert.NotNil(t, obj, "obj cannot be nil")
+</pre>
+<p>It's really that simple. Apply assertions liberally throughout your tests to ensure your code is running the way it should be.</p>
+
+<h2>Debugging with Delve</h2>
+<p>When you do encounter issues in code and need to debug your programs, we've included the Delve debugger to help you out. Delve works similarly to <code>gdb</code>, the GNU Debugger, and lets you easily attach and debug your code. The easiest way to get started is to compile, run, and attach in one step using:</p>
+<pre>dlv debug
+</pre>
+<p>From there, you can type <code>help</code> for a list of the commands for setting breakpoints, watching variables, stepping through code, etc. If you want to debug a program that's already running you can attach to the process using:</p>
+<pre>dlv attach &lt;processid&gt;
+</pre>
+<p>There's a lot more to dig into with Delve and all the tools that come pre-bundled with ActiveGo. We've selected and included many of the most common database connectors, web tools, and packages for Big Data and microservices development.</p>

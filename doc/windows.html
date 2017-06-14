@@ -3,76 +3,141 @@
 	"Template": true
 }-->
 
-<h1>Installing ActiveGo on Windows </h1>
-
-<p>Windows is the only supported platform for the beta release of ActiveGo. macOS and Linux will be supported in future releases.</p>
+<h1>Installing ActiveGo on Windows</h1>
 
 <h2 id="before-you-begin">Before you begin</h2>
 
 <h3 id="prerequisites">Prerequisites</h3>
     <p>Ensure that your system meets the minimum requirements before you start the installation.
-    The ActiveGo 1.8 Beta release has the following requirements:</p>
+    The ActiveGo 1.8.3 release has the following requirements:</p>
     <ul>
-    <li>Windows 64-bit (amd64); Windows 7, or later</li>
-    <li>The installation requires at least 1.5 GB of hard drive space</li>
-    </ul>   
+        <li>Windows 64-bit (amd64); Windows 7, or later</li>
+        <li>The installation requires at least 1 GB of hard drive space</li>
+    </ul>
 
 <h3 id="existing-go-installations">Existing Go installations</h3>
     <p>The ActiveGo installer will automatically detect if another release of Go is installed by looking for existing GOROOT and GOPATH environment variables.
-    If either variable is found, the installer will warn you about the existing installation and ask you if  you want to continue.</p>
-
-    <p>We recommend that you uninstall any existing Go installations before installing ActiveGo.
+    If either variable is found, the installer will warn you about the existing installation and ask you if you want to continue.</p>
+    <p>If you installed the beta version of ActiveGo 1.8.0, you must uninstall it before you install the 1.8.3 release.</p>
+    <p>We recommend that you uninstall any other existing Go distributions before installing ActiveGo.
     If this is not possible, ensure that you take the following precautions when completing a side-by-side installation:</p>
     <ul>
         <li>Choose a directory name for ActiveGo that will not conflict with your existing installation.</li>
         <li>Ensure that the installer will not overwrite any of your existing Go directories.</li>
         <li>Remove the PATH and environment variables associated with any existing Go installations.</li>
     </ul>
-    
-
-<ol>
-<li>Set GOROOT to location where ActiveGo is installed, and rename any existing GOROOT to OLD_GOROOT our Go installation location</li>
-<li>Set the GOPATH relative to our GOROOT, and rename any existing GOPATH to OLD_GOPATH></li>
-<li>Add the ActiveGo <code>go/bin</code> directory to the start of your PATH environment variable to ensure that the ActiveGo executable is used on the command line.</li>
-</ol>
+    <p>After the ActiveGo Setup Wizard is complete, you must make the following configuration changes:</p>
+    <ol>
+        <li>Set GOROOT to point to the location where ActiveGo is installed, and rename your existing GOROOT environment variable to OLD_GOROOT</li>
+        <li>Set the GOPATH relative to our GOROOT, and rename your existing GOPATH to OLD_GOPATH></li>
+        <li>Add the ActiveGo <code>go/bin</code> directory to the start of your PATH environment variable to ensure that the ActiveGo executable is used on the command line.</li>
+    </ol>
 
 <h3 id="accessing-remote-repositories">Accessing remote source control repositories</h3>
 
-<p>If you need to access projects located in remote repositories using the <code>go get</code> command, you need to install the appropriate command line tools for the repository.
+<p>If you need to access projects located in remote repositories, such as git, using the <code>go get</code> command, you need to install the appropriate command line tools for the repository.
 You can find the appropriate tools for Git, Subversion, Mercurial, and Bazaar here: <a href="https://github.com/golang/go/wiki/GoGetTools">https://github.com/golang/go/wiki/GoGetTools</a></p>
 
-<p>A missing error message indicates that required tools are not installed. For example: <code>go: missing Git command</code></p>
+<p>A "missing" error message indicates that required tools are not installed. For example: <code>go: missing Subversion command</code> indicates that the Subversion command line tools are missing.</p>
 
-<h2 id="installing-activego-using-the-windows-installer">Installing ActiveGo using the Windows installer</h2>
+<h2 id="using-the-activego-setup-wizard">Using the ActiveGo Setup Wizard</h2>
+
+<p>There are two ways to install ActiveGo with the Setup Wizard:</p>
 
 <ol>
-<li><a href="http://www.activestate.com/activego" target="_blank">Download</a> the ActiveGo installer (<code>ActiveGo-&lt;version&gt;.exe</code>).</li>
-<li>When the download completes, double-click <code>ActiveGo-&lt;version&gt;.exe</code> to start the installation process.</li>
-<li>Follow the prompts on screen to complete the installation. <!--You need to provide the following information:-->
+<li>You can run the Setup Wizard and enter the required information to install the software.</li>
+<li>If you want to automate the installation, you can run the Setup Wizard from the command line.</li>
 </ol>
+
+<h3 id="running-the-activego-setup-wizard">Running the ActiveGo Setup Wizard</h3>
+
+<p>When you install ActiveGo, you should run the Setup Wizard as an Administrator.</p>
+<p>Running the installation as an Administrator allows other users on the computer to use ActiveGo,
+and ensures that all of ActiveGo&rsquo;s features function correctly.</p>
+
+<ol>
+<li><a href="http://www.activestate.com/activego" target="_blank">Download</a> the ActiveGo Setup Wizard (<code>ActiveGo-&lt;version&gt;.exe</code>).</li>
+<li>Right-click the .exe file and select <strong>Run As Administrator</strong>.</li>
+<li>Follow the prompts on screen to complete the installation.</li>
+</ol>
+
+<p>See the <a href="../../start/windows/">Getting started with ActiveGo on Windows</a> for a general introduction to ActiveGo on your
+platform, and pointers to documentation that will be most useful to you.</p>
+
+<h3 id="running-the-activego-setup-wizard-on-the-command-line">Running the ActiveGo Setup Wizard on the command line</h3>
+
+<p>You can install ActiveGo from the command line. You should start the command prompt
+as an Administrator to ensure the the installation can complete successfully. ActiveGo&rsquo;s installer uses Windows Installer technology, which allows
+you to partially control the install from the command line.</p>
+
+<h4 id="starting-the-setup-wizard">Starting the Setup Wizard</h4>
+
+<p>You can start the Setup Wizard from the command line, and walk through the installation steps in the user interface.</p>
+
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe
+</code></pre>
+
+<h4 id="logging-the-setup-wizard-output">Logging the Setup Wizard output</h4>
+
+<p>If you want to enable logging you can add the appropriate command line switches to specify the level of logging and the log file location. The following command will generate a log of the install in &ldquo;install.log&rdquo; in the current directory.</p>
+
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe /L*v ./install.log
+</code></pre>
+
+<h4 id="specifying-a-custom-installation-directory">Specifying a custom installation directory</h4>
+
+<p>You can also specify a custom installation directory instead of using the default.</p>
+
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe APPDIR=C:\apps\Go
+</code></pre>
+
+<p>You can combine command line options to complete your custom installation from the command line.
+
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe /qn+ APPDIR=C:\apps\Go /L*v ./install.log
+</code></pre>
+
 <!--
-<h2 id="installing-activego-on-the-command-line">Installing ActiveGo on the command line</h2>
+<h5 id="specifying-the-features-to-install">Specifying the features to install</h5>
 
-<p>Syntax:</p>
-<ul>
-    <li><code.>/i</code.>: Install</li>
-    <li><code>//</code>: Required to pass MSIEXEC parameters to the EXE installer</li>
-    <li><code>/qn+</code>: Quiet with no prompts from the user interface</li>
-    <li><code>/L*v logfile_name</code>: Create the specified log file and log in verbose mode</li>
-    <li><code>INSTALLDIR=<path></code>: The directory to install ActiveGo in.</li>
-</ul>
+<p>ActiveGo is divided into features. In the
+&ldquo;Customize Setup&rdquo; dialog you can select which features to install. You can
+also do this on the command line with the ADDLOCAL property. For example, the
+following command will install just the core ActiveGo functionality (i.e.
+not the PyWin32 extensions or the documentation.</p>
 
-<p>To install ActiveGo from the command line, you need to start a command prompt as administrator. For example:</p>
-<code>ActiveGo-1.8.0.1800-beta-win64.exe /i // /qn /l*v activego.log INSTALLDIR=C:\ActiveGo_1_8</code>
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe ADDLOCAL=core
+</code></pre>
 
+<p>The current set of ActiveGo Setup Wizard features are:</p>
 
-<!--<h2 id="verifying-your-installation">Verifying your installation</h2>-->
+<pre><code class="language-bash">    core            ActiveGo core (must be installed)
+        doc         Documentation
+</code></pre>
 
-<h2 id="uninstalling-activego">Uninstalling ActiveGo</h2>
-<p>If you uninstall ActiveGo using the Setup Wizard or <strong>Add or Remove Programs</strong>, the installer removes the GOROOT and GOPATH values set by the ActiveGo setup wizard,
-and removes the <code>go/bin</code> directory from your PATH. It does not reset any of these settings to the previous values set by an earlier installation.
-You will need to restore these values manually. If you had GOPATH and GOROOT environment varibles set when you installed ActiveGO,
-they are are still available as OLD_GOPATH and OLD_GOROOT and can be restored by renaming them back to GOPATH and GOROOT.</p>
-<!--
-To uninstall ActiveGo from the command line, you need to start a command prompt as Administrator. For example:
-<code>ActiveGo-1.8.0.1800-beta-win64.exe /x // /l*v activego.log</code>-->
+<p>Where the hierarchy denotes dependencies you must install them. For example, to install
+<code>doc</code> you must install the ActiveGo core (<code>core</code>).</p>
+
+<h4 id="complete-installation-example">Complete installation example</h4>
+
+<p>You can combine command line options to complete your custom installation from the command line. For example, the following command will install just the ActiveGo core and
+documentation to <code>C:\apps\Go</code>.</p>
+
+<pre><code class="language-bash">c:\&gt; ActiveGo-&lt;version&gt;.exe /qn+ APPDIR=&quot;C:\apps\Go&quot; ^
+     /L*v ./install.log ADDLOCAL=core
+</code></pre>
+
+<p>For more information about the command line installation options, contact <a href="mailto:support@activestate.com">support@activestate.com</a></p>
+-->
+<h3 id="uninstalling-activeGo">Uninstalling ActiveGo</h3>
+
+<p>ActiveGo can be uninstalled using the <strong>Uninstall ActiveGo</strong> shortcut in the <strong>ActiveGo</strong> program group in the Windows Start menu, or <strong>Add/Remove
+Programs</strong> in the Control Panel.</p>
+
+<p>Alternatively, you use the Setup Wizard (.exe) file to uninstall ActiveGo on the command line and optionally write the progress to a log file:</p>
+
+<pre><code class="language-bash">
+c:\&gt; ActiveGo-&lt;version&gt;.exe /x // /L*v ./uninstall.log
+</code></pre>
+
+<p>If you had GOPATH and GOROOT environment varibles previously set, and renamed them when you installed ActiveGO,
+they are available as OLD_GOPATH and OLD_GOROOT and can be restored by renaming them back to GOPATH and GOROOT.</p>

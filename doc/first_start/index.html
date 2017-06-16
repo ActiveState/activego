@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ActiveState ActiveGo 1.8</title>
+
+<link type="text/css" rel="stylesheet" href="style.css">
+
+<!--<link rel="stylesheet" href="lib/godoc/jquery.treeview.css">-->
+<script type="text/javascript">window.initFuncs = [];</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="http://docs.activestate.com/activego/1.8/"><img src="activestate.png" alt="Home">&nbsp;&nbsp;ActiveGo 1.8</a></div>
+<div class="top-heading" id="heading-narrow"><a href="http://docs.activestate.com/activego/1.8/">ActiveGo</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://docs.activestate.com/activego/1.8/search">
+<div id="menu">
+<a href="http://docs.activestate.com/activego/1.8/get/">Get ActiveGo</a>
+<a href="http://docs.activestate.com/activego/1.8/start/">Get started</a>
+<!--<a href="/doc/">Documents</a>-->
+<a href="http://docs.activestate.com/activego/1.8/pkg/">Packages</a>
+<!--<a href="/project/">The Project</a>-->
+<!--<a href="/help/">Help</a>-->
+<!--<a href="/blog/">Blog</a>-->
+<a id="playgroundButton" href="http://play.golang.org/" title="Show Go Playground">Play</a>
+
+<!--<input type="text" id="search" name="q" class="inactive" value="Search" placeholder="Search">-->
+</div>
+</form>
+
+</div></div>
+
+
+<div id="playground" class="play">
+	<div class="input"><textarea class="code" spellcheck="false">package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}</textarea></div>
+	<div class="output"></div>
+	<div class="buttons">
+		<a class="run" title="Run this code [shift-enter]">Run</a>
+		<a class="fmt" title="Format this code">Format</a>
+
+		<a class="share" title="Share this code">Share</a>
+
+	</div>
+</div>
+
+<div id="page">
+<div class="container">
+
+
+
+
+
+<div id="nav"></div>
+
+
+
+
+<h1>Getting started </h1>
+<p>This page lists resources that we think you will find helpful as you get started with ActiveGo and Go programming. </p>
+<p><b>Tip</b>: If you want to run the full ActiveGo help system locally, you can start the godoc server by selecting <b>Start</b> > <b>ActiveGo</b> > <b>ActiveGo Documentation</b>,
+    or by entering <code>godoc -play -http=:6060</code> on the command line. After you start the server you can access the help system at http://localhost:6060.</p>
+<h2 id="community-resources">Community resources</h2>
+<p>For users that are new to Go, we have included portions of the Go community documentation that will help you get up to speed with the Go programming language.</p>
+<ul>
+    <li>Go Tour: A compiled version of the Go tour is included, which you can start by entering <code>gotour</code> on the command line.</li>
+    <li><a href="http://docs.activestate.com/activego/1.8/doc/code.html">How to write Go code</a></li>
+    <li><a href="http://docs.activestate.com/activego/1.8/doc/effective_go.html">Effective Go</a></li>
+    <li><a href="http://docs.activestate.com/activego/1.8/doc/faq">Go FAQ</a></li>
+</ul>
+
+<h2 id="package-documentation">Package documentation</h2>
+<p>ActiveGo includes the core packages and sub-repository packages for the Go language, and an extensive set of useful community packages to use in your projects. </p>
+<ul>
+    <li><a href="http://docs.activestate.com/activego/1.8/pkg/#stdlib">Standard library and community packages included in ActiveGo</a></li>
+    <li><a href="http://docs.activestate.com/activego/1.8/start/whatsincluded/#go-sub-repository-packages">Go sub-repository packages</a></li>
+</ul>
+
+<p>You can also browse the complete list of <a href="http://docs.activestate.com/activego/1.8/pkg/">included packages</a>.</p>
+
+<h2>Command line utilities</h2>
+<p>ActiveGo includes a number of precompiled command line utilities, such as the Delve debugger (dlv) and golint. A complete list is availabile on the <a href="http://docs.activestate.com/activego/1.8/start/whatsincluded/#utils">What's included in ActiveGo?</a> page.</p>
+<h2 id="go-language-documentation">Go language documentation</h2>
+<p>The official Go language specification is also included, along with the Go command documentation and details about the Go memory model.</p>
+<ul>
+    <li><a href="http://docs.activestate.com/activego/1.8/ref/spec">Language specification</a></li>
+    <li><a href="http://docs.activestate.com/activego/1.8/doc/cmd">Command documentation</a></li>
+    <li><a href="http://docs.activestate.com/activego/1.8/ref/mem">Memory model</a></li>
+</ul>
+
+
+<div id="footer">
+Build version go1.8.<br>
+Portions of this page are modifications based on work created and <a href="https://developers.google.com/readme/policies/">shared by Google</a>
+<br>and used according to terms described in the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribution License</a>.
+<br>
+&copy; 2017 ActiveState Software Inc. All rights reserved. <a href="http://docs.activestate.com/activego/1.8/trademarks/">Trademarks</a>.
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+<!-- TODO(adonovan): load these from <head> using "defer" attribute? -->
+<!--
+<script type="text/javascript" src="lib/godoc/jquery.js"></script>
+<script type="text/javascript" src="lib/godoc/jquery.treeview.js"></script>
+<script type="text/javascript" src="lib/godoc/jquery.treeview.edit.js"></script>
+
+
+<script type="text/javascript" src="lib/godoc/playground.js"></script>
+
+<script>var goVersion = "go1.8.3";</script>
+<script type="text/javascript" src="lib/godoc/godocs.js"></script>
+-->
+
+</body>
+</html>
